@@ -1,9 +1,42 @@
 ﻿@{
+    Layout = null;
     ViewData["Title"] = "Home Page";
 }
+<!DOCTYPE html>
 
-<p>The party is tonight.</p>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
 
-<a href="/home/rsvpform">RSVP Now</a>
+    <title>Index</title>
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
 
-@Html.ActionLink("RSVP Now", "RsvpForm")
+    <style>
+        .btn a {
+            color: white;
+            text-decoration: none;
+        }
+
+        body {
+            background-color: #f1f1f1;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="text-center">
+        <h2>The party is tonight.</h2>
+        <h3>And you're invited</h3>
+
+        <div class="btn btn-success">
+            <a asp-action="RsvpForm">RSVP Now</a>
+        </div>
+        <div class="btn btn-success">
+            <a asp-action="Product">Product</a>
+        </div>
+        <div class="btn btn-success">
+    <a asp-action="Products">Products</a>
+</div>
+    </div>
+</body>
+</html>

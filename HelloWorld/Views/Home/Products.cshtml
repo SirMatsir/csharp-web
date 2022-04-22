@@ -1,0 +1,50 @@
+﻿@model IEnumerable<HelloWorld.Models.Product>
+
+@{
+    // add and set mylittle title to say MyProducts on the tab above the view page
+    ViewData["MyLittleTitle"] = "MyProducts";
+     Layout = "~/Views/Shared/_BasicLayout.cshtml";
+}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Products</title>
+</head>
+<body>
+    @if (Model.Count() > 0)
+    {
+        <table>
+            @foreach (var product in Model)
+            {
+                <tr>
+                    <td>@product.Name</td>
+                    <td>@product.Price</td>
+                    <td>
+                        
+                        @switch (product.ProductCount) // for exercise
+                        {
+                            case 0: // add a case for each
+                                @:Out of stock
+                                break;
+                            case 1:
+                                <p>Low Stock</p>
+                                break;
+                            default:
+                                <text>@string.Format("{0} items", product.ProductCount)</text>
+                                break;
+                        }
+                    </td>
+
+                </tr>
+            }
+        </table>
+    }
+    else
+    {
+        <h2>No product data found.</h2>
+    }
+</body>
+</html>
